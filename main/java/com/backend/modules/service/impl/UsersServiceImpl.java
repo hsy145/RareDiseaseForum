@@ -1,6 +1,7 @@
 package com.backend.modules.service.impl;
 
 import com.backend.common.utils.R;
+import com.backend.modules.entity.Cookie;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -43,8 +44,11 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, UsersEntity> impleme
     public R login(String uName, String password,Long uId) {
         if (isValidCredentials(uName, password,uId)) {
             String token = DigestUtils.md5Hex(new Date().getTime()+"");
+            Cookie cookie=new Cookie();
+            cookie.setToken(token);
+            cookie.setUName(uName);
             redis.opsForValue().set(uName, token, 1, TimeUnit.DAYS);
-            return R.ok("登录成功").put("token",token);
+            return R.ok("登录成功").put("cookie",cookie);
         } else {
             return R.error("登录失败");
         }
