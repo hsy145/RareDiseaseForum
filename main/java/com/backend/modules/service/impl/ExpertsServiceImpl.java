@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.ExpertsDao;
-import com.backend.modules.entity.ExpertsEntity;
+import com.backend.modules.entity.mysql.ExpertsEntity;
 import com.backend.modules.service.ExpertsService;
 
 

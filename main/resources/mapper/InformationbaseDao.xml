@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.InformationbaseDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.InformationbaseEntity" id="informationbaseMap">
+    <resultMap type="com.backend.modules.entity.mysql.InformationbaseEntity" id="informationbaseMap">
         <result property="iId" column="i_id"/>
         <result property="iTitle" column="i_title"/>
         <result property="iContent" column="i_content"/>

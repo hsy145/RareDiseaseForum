@@ -1,6 +1,6 @@
 package com.backend.modules.dao;
 
-import com.backend.modules.entity.UsersEntity;
+import com.backend.modules.entity.mysql.UsersEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

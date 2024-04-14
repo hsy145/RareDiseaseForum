@@ -3,18 +3,17 @@ package com.backend.modules.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.backend.modules.entity.UserLoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.*;
 
-import com.backend.modules.entity.UsersEntity;
+import com.backend.modules.entity.mysql.UsersEntity;
 import com.backend.modules.service.UsersService;
 import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.R;
 
+import javax.annotation.Resource;
 
 
 /**
@@ -27,8 +26,9 @@ import com.backend.common.utils.R;
 @RestController
 @RequestMapping("/users")
 public class UsersController {
-    @Autowired
+    @Resource
     private UsersService usersService;
+
 
     /**
      * 列表
@@ -54,10 +54,9 @@ public class UsersController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @RequestMapping("/regist")
     public R save(@RequestBody UsersEntity users){
 		usersService.save(users);
-
         return R.ok();
     }
 
@@ -80,5 +79,9 @@ public class UsersController {
 
         return R.ok();
     }
-
+    @PostMapping("/login")
+    public R login(@RequestBody UserLoginRequest request) {
+        R loginSuccess = usersService.login(request.getUName(),request.getPassword(),request.getUId());
+        return loginSuccess;
+    }
 }

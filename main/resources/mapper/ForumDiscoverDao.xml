@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.ForumDiscoverDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.ForumDiscoverEntity" id="forumDiscoverMap">
+    <resultMap type="com.backend.modules.entity.mysql.ForumDiscoverEntity" id="forumDiscoverMap">
         <result property="discoverId" column="discover_id"/>
         <result property="uId" column="u_id"/>
         <result property="discoverTitle" column="discover_title"/>

@@ -1,8 +1,9 @@
 package com.backend.modules.service;
 
+import com.backend.common.utils.R;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.backend.common.utils.PageUtils;
-import com.backend.modules.entity.UsersEntity;
+import com.backend.modules.entity.mysql.UsersEntity;
 
 import java.util.Map;
 
@@ -16,5 +17,7 @@ import java.util.Map;
 public interface UsersService extends IService<UsersEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    R login(String uName, String password,Long uId);
 }
 

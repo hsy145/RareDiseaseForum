@@ -1,4 +1,4 @@
-package com.backend.modules.entity;
+package com.backend.modules.entity.mysql;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,23 +15,23 @@ import lombok.Data;
  * @date 2024-04-08 21:35:18
  */
 @Data
-@TableName("informationbase")
-public class InformationbaseEntity implements Serializable {
+@TableName("communication_expert")
+public class CommunicationExpertEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	private Integer communicationExpertId;
 	/**
 	 * 
 	 */
-	@TableId
-	private Integer iId;
+	private Integer expertId;
 	/**
 	 * 
 	 */
-	private String iTitle;
+	private Integer uId;
 	/**
 	 * 
 	 */
-	private String iContent;
+	private String content;
 	/**
 	 * 
 	 */

@@ -1,4 +1,4 @@
-package com.backend.modules.entity;
+package com.backend.modules.entity.mysql;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

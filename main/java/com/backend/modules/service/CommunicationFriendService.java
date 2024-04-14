@@ -2,7 +2,7 @@ package com.backend.modules.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.backend.common.utils.PageUtils;
-import com.backend.modules.entity.CommunicationFriendEntity;
+import com.backend.modules.entity.mysql.CommunicationFriendEntity;
 
 import java.util.Map;
 

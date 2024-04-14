@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.modules.entity.InformationbaseEntity;
+import com.backend.modules.entity.mysql.InformationbaseEntity;
 import com.backend.modules.service.InformationbaseService;
 import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.R;

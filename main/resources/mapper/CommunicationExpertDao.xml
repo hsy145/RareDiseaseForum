@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.CommunicationExpertDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.CommunicationExpertEntity" id="communicationExpertMap">
+    <resultMap type="com.backend.modules.entity.mysql.CommunicationExpertEntity" id="communicationExpertMap">
         <result property="communicationExpertId" column="communication_expert_id"/>
         <result property="expertId" column="expert_id"/>
         <result property="uId" column="u_id"/>

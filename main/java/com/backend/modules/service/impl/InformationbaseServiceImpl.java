@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.InformationbaseDao;
-import com.backend.modules.entity.InformationbaseEntity;
+import com.backend.modules.entity.mysql.InformationbaseEntity;
 import com.backend.modules.service.InformationbaseService;
 
 

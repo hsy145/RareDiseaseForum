@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.CommunicationFriendDao;
-import com.backend.modules.entity.CommunicationFriendEntity;
+import com.backend.modules.entity.mysql.CommunicationFriendEntity;
 import com.backend.modules.service.CommunicationFriendService;
 
 

@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.CommunicationExpertDao;
-import com.backend.modules.entity.CommunicationExpertEntity;
+import com.backend.modules.entity.mysql.CommunicationExpertEntity;
 import com.backend.modules.service.CommunicationExpertService;
 
 

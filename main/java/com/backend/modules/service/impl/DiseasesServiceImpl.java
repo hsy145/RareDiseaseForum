@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.DiseasesDao;
-import com.backend.modules.entity.DiseasesEntity;
+import com.backend.modules.entity.mysql.DiseasesEntity;
 import com.backend.modules.service.DiseasesService;
 
 

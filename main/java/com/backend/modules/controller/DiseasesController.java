@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.modules.entity.DiseasesEntity;
+import com.backend.modules.entity.mysql.DiseasesEntity;
 import com.backend.modules.service.DiseasesService;
 import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.R;

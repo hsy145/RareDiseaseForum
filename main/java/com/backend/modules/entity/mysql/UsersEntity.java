@@ -1,4 +1,4 @@
-package com.backend.modules.entity;
+package com.backend.modules.entity.mysql;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,26 +12,34 @@ import lombok.Data;
  * 
  * @author hsy
  * @email 760356917@qq.com
- * @date 2024-04-08 21:35:17
+ * @date 2024-04-08 21:35:18
  */
 @Data
-@TableName("diseases")
-public class DiseasesEntity implements Serializable {
+@TableName("users")
+public class UsersEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
 	@TableId
-	private Integer diseaseId;
+	private Integer uId;
 	/**
 	 * 
 	 */
-	private String diseasesName;
+	private String uName;
 	/**
 	 * 
 	 */
-	private String description;
+	private String password;
+	/**
+	 * 
+	 */
+	private String email;
+	/**
+	 * 
+	 */
+	private Integer diseasesName;
 	/**
 	 * 
 	 */

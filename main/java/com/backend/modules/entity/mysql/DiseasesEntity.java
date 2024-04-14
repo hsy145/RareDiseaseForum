@@ -1,4 +1,4 @@
-package com.backend.modules.entity;
+package com.backend.modules.entity.mysql;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,27 +15,23 @@ import lombok.Data;
  * @date 2024-04-08 21:35:17
  */
 @Data
-@TableName("forum_discover")
-public class ForumDiscoverEntity implements Serializable {
+@TableName("diseases")
+public class DiseasesEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
 	@TableId
-	private Integer discoverId;
+	private Integer diseaseId;
 	/**
 	 * 
 	 */
-	private Integer uId;
+	private String diseasesName;
 	/**
 	 * 
 	 */
-	private String discoverTitle;
-	/**
-	 * 
-	 */
-	private String discoverContent;
+	private String description;
 	/**
 	 * 
 	 */

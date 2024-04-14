@@ -1,6 +1,6 @@
 package com.backend.modules.dao;
 
-import com.backend.modules.entity.DiseasesEntity;
+import com.backend.modules.entity.mysql.DiseasesEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

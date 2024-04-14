@@ -11,9 +11,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.92.87.211/?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: parttime
-    password: parttime
+    url: jdbc:mysql://47.92.87.211/disease_forum?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: disease_forum
+    password: disease_forum
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -47,7 +47,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.backend.modules.*.entity
+  typeAliasesPackage: com.backend.modules.*.entity.mysql
   global-config:
     #数据库相关配置
     db-config:

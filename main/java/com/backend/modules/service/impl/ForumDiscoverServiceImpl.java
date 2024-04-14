@@ -9,7 +9,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.Query;
 
 import com.backend.modules.dao.ForumDiscoverDao;
-import com.backend.modules.entity.ForumDiscoverEntity;
+import com.backend.modules.entity.mysql.ForumDiscoverEntity;
 import com.backend.modules.service.ForumDiscoverService;
 
 

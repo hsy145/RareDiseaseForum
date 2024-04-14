@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.CommunicationFriendDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.CommunicationFriendEntity" id="communicationFriendMap">
+    <resultMap type="com.backend.modules.entity.mysql.CommunicationFriendEntity" id="communicationFriendMap">
         <result property="communicationFriendId" column="communication_friend_id"/>
         <result property="uId" column="u_id"/>
         <result property="diseaseId" column="disease_id"/>
