@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.DiseasesDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.DiseasesEntity" id="diseasesMap">
+    <resultMap type="com.backend.modules.entity.mysql.DiseasesEntity" id="diseasesMap">
         <result property="diseaseId" column="disease_id"/>
         <result property="diseasesName" column="diseases_name"/>
         <result property="description" column="description"/>

@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="DiseaseForum" options="-parameters" />
+      <module name="DiseaseForum" options="-bootclasspath $USER_HOME$/.jdks/corretto-1.8.0_402/jre\lib\rt.jar;$USER_HOME$/.jdks/corretto-1.8.0_402/jre\lib\jce.jar -Xlint:deprecation" />
     </option>
   </component>
 </project>

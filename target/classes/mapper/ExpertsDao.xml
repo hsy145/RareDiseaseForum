@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.ExpertsDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.ExpertsEntity" id="expertsMap">
+    <resultMap type="com.backend.modules.entity.mysql.ExpertsEntity" id="expertsMap">
         <result property="expertId" column="expert_id"/>
         <result property="uId" column="u_id"/>
         <result property="specialty" column="specialty"/>

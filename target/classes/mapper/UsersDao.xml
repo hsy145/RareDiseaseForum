@@ -4,7 +4,7 @@
 <mapper namespace="com.backend.modules.dao.UsersDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.backend.modules.entity.UsersEntity" id="usersMap">
+    <resultMap type="com.backend.modules.entity.mysql.UsersEntity" id="usersMap">
         <result property="uId" column="u_id"/>
         <result property="uName" column="u_name"/>
         <result property="password" column="password"/>
