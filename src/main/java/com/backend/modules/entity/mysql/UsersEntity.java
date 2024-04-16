@@ -27,7 +27,7 @@ public class UsersEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String uName;
+	private String username;
 	/**
 	 * 
 	 */

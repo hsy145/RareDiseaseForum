@@ -6,7 +6,7 @@
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.backend.modules.entity.mysql.UsersEntity" id="usersMap">
         <result property="uId" column="u_id"/>
-        <result property="uName" column="u_name"/>
+        <result property="uName" column="username"/>
         <result property="password" column="password"/>
         <result property="email" column="email"/>
         <result property="diseasesName" column="diseases_name"/>
