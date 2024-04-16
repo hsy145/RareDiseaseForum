@@ -21,6 +21,7 @@ import com.backend.modules.entity.mysql.UsersEntity;
 import com.backend.modules.service.UsersService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 
 @Service("usersService")
@@ -41,16 +42,16 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, UsersEntity> impleme
     }
 
     @Override
-    public R login(String uName, String password,Long uId) {
+    public R login(String uName, String password, Long uId, HttpSession session) {
         if (isValidCredentials(uName, password,uId)) {
             String token = DigestUtils.md5Hex(new Date().getTime()+"");
             Cookie cookie=new Cookie();
             cookie.setToken(token);
             cookie.setUName(uName);
             redis.opsForValue().set(uName, token, 1, TimeUnit.DAYS);
-            return R.ok("登录成功").put("cookie",cookie);
+            return R.ok("登录成功").put("cookie",cookie).put("flag",true).put("user",uName);
         } else {
-            return R.error("登录失败");
+            return R.error("登录失败").put("flag",false);
         }
     }
     private boolean isValidCredentials(String uName, String password,Long uId) {

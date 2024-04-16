@@ -14,6 +14,7 @@ import com.backend.common.utils.PageUtils;
 import com.backend.common.utils.R;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -54,9 +55,9 @@ public class UsersController {
     /**
      * 保存
      */
-    @RequestMapping("/regist")
-    public R save(@RequestBody UsersEntity users){
-		usersService.save(users);
+    @PostMapping("/regist")
+    public R save(@RequestBody UsersEntity user){
+		usersService.save(user);
         return R.ok();
     }
 
@@ -80,8 +81,13 @@ public class UsersController {
         return R.ok();
     }
     @PostMapping("/login")
-    public R login(@RequestBody UserLoginRequest request) {
-        R loginSuccess = usersService.login(request.getUName(),request.getPassword(),request.getUId());
+    public R login(@RequestBody UserLoginRequest request, HttpSession session) {
+        R loginSuccess = usersService.login(request.getUName(),request.getPassword(),request.getUId(),session);
         return loginSuccess;
+    }
+    @GetMapping("/getUsername")
+    public String getUsername(HttpSession session) {
+        String username = (String) session.getAttribute("user");
+        return username;
     }
 }

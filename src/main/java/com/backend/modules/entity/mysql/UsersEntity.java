@@ -35,11 +35,7 @@ public class UsersEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String email;
-	/**
-	 * 
-	 */
-	private Integer diseasesName;
+	private Integer diseasesId;
 	/**
 	 * 
 	 */
