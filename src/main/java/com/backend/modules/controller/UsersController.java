@@ -82,7 +82,7 @@ public class UsersController {
     }
     @PostMapping("/login")
     public R login(@RequestBody UserLoginRequest request, HttpSession session) {
-        R loginSuccess = usersService.login(request.getUName(),request.getPassword(),request.getUId(),session);
+        R loginSuccess = usersService.login(request.getUsername(),request.getPassword(),request.getUid(),session);
         return loginSuccess;
     }
     @GetMapping("/getUsername")

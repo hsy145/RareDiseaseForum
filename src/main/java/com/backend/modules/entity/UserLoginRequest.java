@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserLoginRequest {
-    private Long uId;
+    private Long uid;
     private String username;
     private String password;
 }
