@@ -14,5 +14,39 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
+    <!-- 查询推文 -->
+    <select id="getTweets" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity">
+        SELECT discover_id, discover_title, src, create_time
+        FROM forum_discover
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+    <!-- 查询推荐 -->
+    <select id="getRecommendations" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity">
+        SELECT discover_id, discover_title, LEFT(discover_content, 256) AS discover_content, src, create_time
+        FROM forum_discover
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+    <!-- 查询中间框内容 -->
+    <select id="getMiddleBoxContents" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity">
+        SELECT discover_id, discover_title, discover_content, create_time
+        FROM forum_discover
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 5
+    </select>
+
+    <!-- 根据ID查询完整内容 -->
+    <select id="getFullContentById" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity">
+        SELECT discover_id, discover_title, discover_content, create_time
+        FROM forum_discover
+        WHERE discover_id = #{id} AND is_deleted = 0
+    </select>
+
 
 </mapper>

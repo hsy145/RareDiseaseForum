@@ -1,6 +1,9 @@
 package com.backend.modules.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -14,7 +17,8 @@ import com.backend.modules.service.InformationbaseService;
 
 
 @Service("informationbaseService")
-public class InformationbaseServiceImpl extends ServiceImpl<InformationbaseDao, InformationbaseEntity> implements InformationbaseService {
+public class InformationbaseServiceImpl extends ServiceImpl<InformationbaseDao, InformationbaseEntity>
+        implements InformationbaseService {
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -24,6 +28,31 @@ public class InformationbaseServiceImpl extends ServiceImpl<InformationbaseDao, 
         );
 
         return new PageUtils(page);
+    }
+
+
+
+    @Autowired
+    private InformationbaseDao InformationbaseDao;
+
+    @Override
+    public List<InformationbaseEntity> selectAllArticles() {
+        return InformationbaseDao.selectAllArticles();
+    }
+
+    @Override
+    public InformationbaseEntity selectArticleById(Integer id) {
+        return InformationbaseDao.selectById(id);
+    }
+
+    @Override
+    public List<InformationbaseEntity> searchByKeyword(String keyword) {
+        return InformationbaseDao.searchByKeyword(keyword);
+    }
+
+    @Override
+    public boolean saveArticle(InformationbaseEntity article) {
+        return InformationbaseDao.insert(article) > 0;
     }
 
 }

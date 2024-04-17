@@ -1,14 +1,11 @@
 package com.backend.modules.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.backend.modules.entity.mysql.InformationbaseEntity;
 import com.backend.modules.service.InformationbaseService;
@@ -41,44 +38,48 @@ public class InformationbaseController {
     }
 
 
-    /**
-     * 信息
-     */
-    @RequestMapping("/info/{iId}")
-    public R info(@PathVariable("iId") Integer iId){
-		InformationbaseEntity informationbase = informationbaseService.getById(iId);
-
-        return R.ok().put("informationbase", informationbase);
+    // 获取所有文章简要信息用于主页面显示
+    @GetMapping("/articles")
+    public R getAllArticles() {
+        try {
+            List<InformationbaseEntity> articles = informationbaseService.selectAllArticles();
+            return R.ok().put("articles", articles);
+        } catch (Exception e) {
+            return R.error("Failed to retrieve articles: " + e.getMessage());
+        }
     }
 
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    public R save(@RequestBody InformationbaseEntity informationbase){
-		informationbaseService.save(informationbase);
-
-        return R.ok();
+    // 根据ID获取文章详细内容
+    @GetMapping("/article/{id}")
+    public R getArticleById(@PathVariable Integer id) {
+        try {
+            InformationbaseEntity article = informationbaseService.selectArticleById(id);
+            return article != null ? R.ok().put("article", article) : R.error("Article not found");
+        } catch (Exception e) {
+            return R.error("Error retrieving article: " + e.getMessage());
+        }
     }
 
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    public R update(@RequestBody InformationbaseEntity informationbase){
-		informationbaseService.updateById(informationbase);
-
-        return R.ok();
+    // 搜索功能：根据疾病关键词搜索相关文章
+    @GetMapping("/search")
+    public R searchArticles(@RequestParam("keyword") String keyword) {
+        try {
+            List<InformationbaseEntity> results = informationbaseService.searchByKeyword(keyword);
+            return R.ok().put("articles", results);
+        } catch (Exception e) {
+            return R.error("Search failed: " + e.getMessage());
+        }
     }
 
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] iIds){
-		informationbaseService.removeByIds(Arrays.asList(iIds));
-
-        return R.ok();
+    // 允许用户提交疾病相关的文章
+    @PostMapping("/submit")
+    public R submitArticle(@RequestBody InformationbaseEntity article) {
+        try {
+            boolean saved = informationbaseService.saveArticle(article);
+            return saved ? R.ok("Article submitted successfully") : R.error("Failed to submit article");
+        } catch (Exception e) {
+            return R.error("Submission failed: " + e.getMessage());
+        }
     }
 
 }

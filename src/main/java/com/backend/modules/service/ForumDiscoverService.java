@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.backend.common.utils.PageUtils;
 import com.backend.modules.entity.mysql.ForumDiscoverEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +17,10 @@ import java.util.Map;
 public interface ForumDiscoverService extends IService<ForumDiscoverEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<ForumDiscoverEntity> getTweets();
+    List<ForumDiscoverEntity> getRecommendations();
+    List<ForumDiscoverEntity> getMiddleBoxContents();
+    ForumDiscoverEntity getFullContentById(Integer id);
 }
 

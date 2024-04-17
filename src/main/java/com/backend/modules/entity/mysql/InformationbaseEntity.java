@@ -44,5 +44,8 @@ public class InformationbaseEntity implements Serializable {
 	 * 
 	 */
 	private Date updateTime;
-
+	/**
+	 *
+	 */
+	private String src;
 }

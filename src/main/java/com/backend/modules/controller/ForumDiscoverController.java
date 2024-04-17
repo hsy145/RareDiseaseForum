@@ -1,14 +1,11 @@
 package com.backend.modules.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.backend.modules.entity.mysql.ForumDiscoverEntity;
 import com.backend.modules.service.ForumDiscoverService;
@@ -41,44 +38,52 @@ public class ForumDiscoverController {
     }
 
 
-    /**
-     * 信息
-     */
-    @RequestMapping("/info/{discoverId}")
-    public R info(@PathVariable("discoverId") Integer discoverId){
-		ForumDiscoverEntity forumDiscover = forumDiscoverService.getById(discoverId);
-
-        return R.ok().put("forumDiscover", forumDiscover);
+    // 获取推文列表
+    @GetMapping("/tweets")
+    public R getTweets() {
+        try {
+            List<ForumDiscoverEntity> data = forumDiscoverService.getTweets();
+            return R.ok().put("data", data);
+        } catch (Exception e) {
+            return R.error(e.getMessage());
+        }
     }
 
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    public R save(@RequestBody ForumDiscoverEntity forumDiscover){
-		forumDiscoverService.save(forumDiscover);
-
-        return R.ok();
+    // 获取推荐列表，包括内容的部分显示和创建时间
+    @GetMapping("/recommendations")
+    public R getRecommendations() {
+        try {
+            List<ForumDiscoverEntity> data = forumDiscoverService.getRecommendations();
+            return R.ok().put("data", data);
+        } catch (Exception e) {
+            return R.error(e.getMessage());
+        }
     }
 
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    public R update(@RequestBody ForumDiscoverEntity forumDiscover){
-		forumDiscoverService.updateById(forumDiscover);
-
-        return R.ok();
+    // 获取中间框内容
+    @GetMapping("/middle-box")
+    public R getMiddleBoxContents() {
+        try {
+            List<ForumDiscoverEntity> data = forumDiscoverService.getMiddleBoxContents();
+            return R.ok().put("data", data);
+        } catch (Exception e) {
+            return R.error(e.getMessage());
+        }
     }
 
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] discoverIds){
-		forumDiscoverService.removeByIds(Arrays.asList(discoverIds));
-
-        return R.ok();
+    // 根据ID获取完整内容，可用于用户点击推荐模块后查看完整文章
+    @GetMapping("/content/{id}")
+    public R getFullContentById(@PathVariable Integer id) {
+        try {
+            ForumDiscoverEntity content = forumDiscoverService.getFullContentById(id);
+            if (content != null) {
+                return R.ok().put("data", content);
+            } else {
+                return R.error(404, "Content not found"); // 如果没有找到内容，返回404错误
+            }
+        } catch (Exception e) {
+            return R.error(e.getMessage());
+        }
     }
 
 }

@@ -48,5 +48,9 @@ public class ForumDiscoverEntity implements Serializable {
 	 * 
 	 */
 	private Date updateTime;
+	/**
+	 *
+	 */
+	private String src;
 
 }

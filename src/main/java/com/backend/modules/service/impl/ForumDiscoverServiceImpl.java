@@ -1,6 +1,9 @@
 package com.backend.modules.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -24,6 +27,28 @@ public class ForumDiscoverServiceImpl extends ServiceImpl<ForumDiscoverDao, Foru
         );
 
         return new PageUtils(page);
+    }
+
+    @Autowired
+    private ForumDiscoverDao forumDiscoverDao;
+
+    @Override
+    public List<ForumDiscoverEntity> getTweets() {
+        return forumDiscoverDao.getTweets();
+    }
+
+    @Override
+    public List<ForumDiscoverEntity> getRecommendations() {
+        return forumDiscoverDao.getRecommendations();
+    }
+    @Override
+    public List<ForumDiscoverEntity> getMiddleBoxContents() {
+        return forumDiscoverDao.getMiddleBoxContents();
+    }
+
+    @Override
+    public ForumDiscoverEntity getFullContentById(Integer id) {
+        return forumDiscoverDao.getFullContentById(id);
     }
 
 }

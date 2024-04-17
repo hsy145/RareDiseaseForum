@@ -4,6 +4,8 @@ import com.backend.modules.entity.mysql.ForumDiscoverEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * 
  * 
@@ -13,5 +15,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ForumDiscoverDao extends BaseMapper<ForumDiscoverEntity> {
-	
+
+    List<ForumDiscoverEntity> getTweets();
+    List<ForumDiscoverEntity> getRecommendations();
+    List<ForumDiscoverEntity> getMiddleBoxContents();
+    ForumDiscoverEntity getFullContentById(Integer id);
 }

@@ -3,6 +3,9 @@ package com.backend.modules.dao;
 import com.backend.modules.entity.mysql.InformationbaseEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * 
@@ -13,5 +16,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface InformationbaseDao extends BaseMapper<InformationbaseEntity> {
-	
+
+
+    List<InformationbaseEntity> selectAllArticles();
+
+
+    List<InformationbaseEntity> searchByKeyword( String keyword);
 }
+

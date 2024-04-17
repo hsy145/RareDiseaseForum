@@ -2,17 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DiseaseForum" />
+        <module name="backend" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DiseaseForum" options="-bootclasspath $USER_HOME$/.jdks/corretto-1.8.0_402/jre\lib\rt.jar;$USER_HOME$/.jdks/corretto-1.8.0_402/jre\lib\jce.jar -Xlint:deprecation" />
+      <module name="backend" options="-bootclasspath D:/jdk8-bin.exe/jre\lib\rt.jar;D:/jdk8-bin.exe/jre\lib\jce.jar -Xlint:deprecation" />
     </option>
   </component>
 </project>
