@@ -50,7 +50,7 @@ public class InformationbaseController {
     }
 
     // 根据ID获取文章详细内容
-    @GetMapping("/article/{id}")
+    @GetMapping("/articles/{id}")
     public R getArticleById(@PathVariable Integer id) {
         try {
             InformationbaseEntity article = informationbaseService.selectArticleById(id);
@@ -71,15 +71,6 @@ public class InformationbaseController {
         }
     }
 
-    // 允许用户提交疾病相关的文章
-    @PostMapping("/submit")
-    public R submitArticle(@RequestBody InformationbaseEntity article) {
-        try {
-            boolean saved = informationbaseService.saveArticle(article);
-            return saved ? R.ok("Article submitted successfully") : R.error("Failed to submit article");
-        } catch (Exception e) {
-            return R.error("Submission failed: " + e.getMessage());
-        }
-    }
+
 
 }
