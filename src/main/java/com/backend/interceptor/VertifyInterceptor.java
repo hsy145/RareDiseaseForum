@@ -5,6 +5,7 @@ import com.backend.common.utils.R;
 import com.sun.istack.internal.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 @Slf4j
+@Component
 public class VertifyInterceptor implements HandlerInterceptor {
     @Resource
     private StringRedisTemplate redis;
