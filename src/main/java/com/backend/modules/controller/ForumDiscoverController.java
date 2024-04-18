@@ -72,7 +72,7 @@ public class ForumDiscoverController {
     }
 
     // 根据ID获取完整内容，可用于用户点击推荐模块后查看完整文章
-    @GetMapping("/content/{id}")
+    @GetMapping("/recommendations/{id}")
     public R getFullContentById(@PathVariable Integer id) {
         try {
             ForumDiscoverEntity content = forumDiscoverService.getFullContentById(id);

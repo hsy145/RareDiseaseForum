@@ -50,9 +50,6 @@ public class InformationbaseServiceImpl extends ServiceImpl<InformationbaseDao, 
         return InformationbaseDao.searchByKeyword(keyword);
     }
 
-    @Override
-    public boolean saveArticle(InformationbaseEntity article) {
-        return InformationbaseDao.insert(article) > 0;
-    }
+
 
 }

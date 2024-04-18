@@ -23,6 +23,6 @@ public interface InformationbaseService extends IService<InformationbaseEntity> 
     List<InformationbaseEntity> selectAllArticles();
     InformationbaseEntity selectArticleById(Integer id);
     List<InformationbaseEntity> searchByKeyword(String keyword);
-    boolean saveArticle(InformationbaseEntity article);
+
 }
 
