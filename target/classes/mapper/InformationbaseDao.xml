@@ -14,4 +14,21 @@
     </resultMap>
 
 
+    <!-- 获取所有文章，简要信息 -->
+    <select id="selectAllArticles" resultType="com.backend.modules.entity.mysql.InformationbaseEntity">
+        SELECT * FROM informationbase WHERE is_deleted = 0
+    </select>
+
+    <!-- 根据ID获取完整文章 -->
+    <select id="selectById" resultType="com.backend.modules.entity.mysql.InformationbaseEntity">
+        SELECT * FROM informationbase WHERE i_id = #{id} AND is_deleted = 0
+    </select>
+
+    <!-- 搜索文章 -->
+    <select id="searchByKeyword" resultType="com.backend.modules.entity.mysql.InformationbaseEntity">
+        SELECT * FROM informationbase
+        WHERE (i_title LIKE CONCAT('%', #{keyword}, '%') OR i_content LIKE CONCAT('%', #{keyword}, '%'))
+          AND is_deleted = 0
+    </select>
+
 </mapper>

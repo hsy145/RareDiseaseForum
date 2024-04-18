@@ -1,5 +1,6 @@
 package com.backend.modules.service.impl;
 
+import com.backend.common.utils.MD5Util;
 import com.backend.common.utils.R;
 import com.backend.modules.entity.Cookie;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -57,7 +58,7 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, UsersEntity> impleme
     private boolean isValidCredentials(String uName, String password,Long uId) {
         UsersEntity user = usersDao.selectById(uId);
         if (user!=null){
-            return user.getUsername().equals(uName)&&user.getPassword().equals(password);
+            return user.getUsername().equals(uName)&& user.getPassword().equals(MD5Util.encrypt(password));
         }else {
             return false;
         }

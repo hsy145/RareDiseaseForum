@@ -3,6 +3,7 @@ package com.backend.modules.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.backend.common.utils.MD5Util;
 import com.backend.modules.entity.UserLoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -57,8 +58,10 @@ public class UsersController {
      */
     @PostMapping("/regist")
     public R save(@RequestBody UsersEntity user){
-		usersService.save(user);
-        return R.ok();
+        String encrypt = MD5Util.encrypt(user.getPassword());
+        user.setPassword(encrypt);
+        usersService.save(user);
+        return R.ok().put("user",user);
     }
 
     /**
@@ -67,7 +70,6 @@ public class UsersController {
     @RequestMapping("/update")
     public R update(@RequestBody UsersEntity users){
 		usersService.updateById(users);
-
         return R.ok();
     }
 

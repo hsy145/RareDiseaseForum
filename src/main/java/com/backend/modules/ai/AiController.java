@@ -3,14 +3,11 @@ package com.backend.modules.ai;
 import com.backend.common.utils.R;
 import com.backend.common.utils.RestTemplateUtil;
 import com.backend.modules.entity.AIMessageList;
-import com.backend.modules.entity.AiMsg;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 import java.util.Map;
 
 @RequestMapping("/AI")
