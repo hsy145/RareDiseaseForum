@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.modules.dao.ForumDiscoverDao.RecommendationsDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.backend.modules.entity.mysql.ForumDiscoverEntity.RecommendationsEntity" id="recommendationsMap">
+        <result property="recommendationsId" column="recommendations_id"/>
+        <result property="recommendationsId" column="recommendations_id"/>
+        <result property="recommendationsTitle" column="recommendations_title"/>
+        <result property="recommendationsContent" column="recommendations_content"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+
+
+    <!-- 查询推荐 -->
+    <select id="getRecommendations" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.RecommendationsEntity">
+        SELECT recommendations_id, recommendations_title, src, create_time
+        FROM recommendations
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+
+
+    <!-- 根据ID查询完整内容 -->
+    <select id="getFullContentById" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.RecommendationsEntity">
+        SELECT recommendations_id, recommendations_title, recommendations_content, src,create_time
+        FROM recommendations
+        WHERE recommendations_id = #{id} AND is_deleted = 0
+    </select>
+
+
+</mapper>

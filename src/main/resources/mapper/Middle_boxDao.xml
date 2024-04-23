@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.modules.dao.ForumDiscoverDao.Middle_boxDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity" id="middle_boxMap">
+        <result property="middle_boxId" column="middle_box_id"/>
+        <result property="middle_boxId" column="middle_box_id"/>
+        <result property="middle_boxTitle" column="middle_box_title"/>
+        <result property="middle_boxContent" column="middle_box_content"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+
+    <!-- 查询中间框内容 -->
+    <select id="getMiddleBoxContents" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity">
+        SELECT middle_box_id, middle_box_title, middle_box_content, create_time
+        FROM middle_box
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 5
+    </select>
+
+
+
+
+</mapper>

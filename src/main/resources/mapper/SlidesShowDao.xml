@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.modules.dao.ForumDiscoverDao.SlidesShowDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.backend.modules.entity.mysql.ForumDiscoverEntity.SlidesShowEntity" id="slidesShowMap">
+        <result property="slidesShowId" column="slidesShow_id"/>
+        <result property="slidesShowId" column="slidesShow_id"/>
+        <result property="slidesShowTitle" column="slidesShow_title"/>
+        <result property="slidesShowContent" column="slidesShow_content"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+
+
+
+    <!-- 1查询轮播图信息-->
+    <select id="getSlidesShowArticles" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.SlidesShowEntity">
+        SELECT  slidesShow_id,slidesShow_title,  create_time
+        FROM slides_show
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+    <!-- 1根据ID查询完整内容 -->
+    <select id="getSlidesShowPictureById" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.SlidesShowEntity">
+        SELECT  slidesShow_id,src, create_time
+        FROM slides_show
+        WHERE slidesShow_id = #{id} AND is_deleted = 0
+    </select>
+
+    <!-- 1查询轮播图所有图片-->
+    <select id="getSlidesShowPictures" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.SlidesShowEntity">
+        SELECT slidesShow_id, src,  create_time
+        FROM slides_show
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+
+
+</mapper>

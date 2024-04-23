@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.modules.dao.ForumDiscoverDao.TweetsDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.backend.modules.entity.mysql.ForumDiscoverEntity.TweetsEntity" id="tweetsMap">
+        <result property="tweetsId" column="tweets_id"/>
+        <result property="tweetsTitle" column="tweets_title"/>
+        <result property="tweetsContent" column="tweets_content"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+
+    <!-- 查询推文 -->
+    <select id="getTweets" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.TweetsEntity">
+        SELECT tweets_id, tweets_title, tweets_content,src, create_time
+        FROM tweets
+        WHERE is_deleted = 0
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+
+
+
+</mapper>
