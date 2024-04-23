@@ -44,13 +44,14 @@ public class UsersServiceImpl extends ServiceImpl<UsersDao, UsersEntity> impleme
 
     @Override
     public R login(String uName, String password, Long uId, HttpSession session) {
+        String sessionId = session.getId();
         if (isValidCredentials(uName, password,uId)) {
             String token = DigestUtils.md5Hex(new Date().getTime()+"");
             Cookie cookie=new Cookie();
             cookie.setToken(token);
             cookie.setUName(uName);
             redis.opsForValue().set(uName, token, 1, TimeUnit.DAYS);
-            return R.ok("登录成功").put("cookie",cookie).put("flag",true).put("user",uName);
+            return R.ok("登录成功").put("cookie",cookie).put("flag",true).put("user",uName).put("session",sessionId);
         } else {
             return R.error("登录失败").put("flag",false);
         }
