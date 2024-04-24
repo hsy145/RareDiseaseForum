@@ -3,6 +3,7 @@ package com.backend.modules.controller.ForumDiscoverController;
 import com.backend.common.utils.R;
 import com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity;
 
+import com.backend.modules.entity.mysql.vo.MiddleBoxVo;
 import com.backend.modules.service.ForumDiscoverService.Middle_boxService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class Middle_boxController {
     @GetMapping("/middle-box")
     public R getMiddleBoxContents() {
         try {
-            List<Middle_boxEntity> data = middle_boxService.getMiddleBoxContents();
+            List<MiddleBoxVo> data = middle_boxService.getMiddleBoxContents();
             return R.ok().put("data", data);
         } catch (Exception e) {
             return R.error(e.getMessage());

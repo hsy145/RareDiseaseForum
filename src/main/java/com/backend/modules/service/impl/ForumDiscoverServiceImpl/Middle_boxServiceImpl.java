@@ -4,6 +4,7 @@ import com.backend.modules.dao.ForumDiscoverDao.Middle_boxDao;
 
 import com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity;
 
+import com.backend.modules.entity.mysql.vo.MiddleBoxVo;
 import com.backend.modules.service.ForumDiscoverService.Middle_boxService;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -30,7 +31,7 @@ public class Middle_boxServiceImpl extends ServiceImpl<Middle_boxDao, Middle_box
     private Middle_boxDao middle_boxDao;
 
     @Override
-    public List<Middle_boxEntity> getMiddleBoxContents() {
+    public List<MiddleBoxVo> getMiddleBoxContents() {
         return middle_boxDao.getMiddleBoxContents();
     }
 }

@@ -2,6 +2,7 @@ package com.backend.modules.service.ForumDiscoverService;
 
 import com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity;
 
+import com.backend.modules.entity.mysql.vo.MiddleBoxVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -17,5 +18,5 @@ import java.util.List;
  */
 public interface Middle_boxService extends IService<Middle_boxEntity> {
 
-    List<Middle_boxEntity> getMiddleBoxContents();
+    List<MiddleBoxVo> getMiddleBoxContents();
 }

@@ -21,27 +21,28 @@ public class VertifyInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) throws Exception {
-        String uName = "";
-        String token = "";
-        try {
-            for (Cookie ck : request.getCookies()) {
-                if (Objects.equals(ck.getName(), "uName")) {
-                    uName = ck.getValue();
-                } else if (Objects.equals(ck.getName(), "token")) {
-                    token = ck.getValue();
-                }
-            }
-            log.info("Verify,uName:" + uName + ",token:" + token);
-            if (isLogin(uName, token)) {
-                return true;
-            } else {
-                response.setContentType("application/json;charset=UTF-8");
-                response.getWriter().println(JSON.toJSONString(R.error("验证错误")));
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
+        return true;
+//        String uName = "";
+//        String token = "";
+//        try {
+//            for (Cookie ck : request.getCookies()) {
+//                if (Objects.equals(ck.getName(), "uName")) {
+//                    uName = ck.getValue();
+//                } else if (Objects.equals(ck.getName(), "token")) {
+//                    token = ck.getValue();
+//                }
+//            }
+//            log.info("Verify,uName:" + uName + ",token:" + token);
+//            if (isLogin(uName, token)) {
+//                return true;
+//            } else {
+//                response.setContentType("application/json;charset=UTF-8");
+//                response.getWriter().println(JSON.toJSONString(R.error("验证错误")));
+//                return false;
+//            }
+//        } catch (Exception e) {
+//            return false;
+//        }
     }
     public boolean isLogin(String uName, String token) {
         String r = redis.opsForValue().get(uName);

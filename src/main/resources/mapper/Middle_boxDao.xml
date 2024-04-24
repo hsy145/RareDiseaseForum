@@ -17,7 +17,7 @@
 
 
     <!-- 查询中间框内容 -->
-    <select id="getMiddleBoxContents" resultType="com.backend.modules.entity.mysql.ForumDiscoverEntity.Middle_boxEntity">
+    <select id="getMiddleBoxContents" resultType="com.backend.modules.entity.mysql.vo.MiddleBoxVo">
         SELECT middle_box_id, middle_box_title, middle_box_content, create_time
         FROM middle_box
         WHERE is_deleted = 0
